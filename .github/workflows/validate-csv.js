@@ -20,6 +20,7 @@ const schemaObject = {
   date_accessed: Joi.string().regex(/^\d{4}\/\d{2}\/\d{2}$/),
   description: Joi.string(),
   source_link: Joi.string(),
+  activity: Joi.string(),
 };
 const schema = Joi.object(schemaObject);
 
