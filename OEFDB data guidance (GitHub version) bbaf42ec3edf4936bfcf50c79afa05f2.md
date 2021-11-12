@@ -86,5 +86,3 @@ This is the date the contributor accessed the data, important for understanding 
 ### source_link
 
 Link to the source for reference and cross-validation. This ideally links to the specific emission factor, or if not to the specific file from which the emission factor was retrieved.
-
-🦑 [ID structure per category (GitHub version)](https://www.notion.so/ID-structure-per-category-GitHub-version-9ccd41b02f4a4a28a2b5d3ceca04ad41)
