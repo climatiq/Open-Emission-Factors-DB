@@ -1,4 +1,4 @@
-# ID structure per category (GitHub version)
+# ID structure per category
 
 ## Full list of ID structures for different categories that currently exist in the OEFDB:
 
