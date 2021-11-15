@@ -22,8 +22,8 @@ Emission factor category. Aligned with `sector`, but more specific.
 . for decimal places
 _ instead of spaces
 - to separate sub IDs
-- Sub IDs are defined per category - see the full list of these in the [ID structure per category document.](https://www.notion.so/ID-structure-per-category-GitHub-version-9ccd41b02f4a4a28a2b5d3ceca04ad41)
-- See a list of glossary terms and abbreviations used in the OEFDB ID field at the foot of the [ID structure per category document.](https://www.notion.so/ID-structure-per-category-GitHub-version-9ccd41b02f4a4a28a2b5d3ceca04ad41)
+- Sub IDs are defined per category - see the full list of these in the [ID structure guidance document.](/ID_STRUCTURE_GUIDANCE.md)
+- See a list of glossary terms and abbreviations used in the OEFDB ID field at the foot of the [ID structure guidance document.](/ID_STRUCTURE_GUIDANCE.md)
 
 **Important:** The uniqueness of an emission factor is defined by **id**, **source**, **year,** and **region**. No more than one emission factor can be defined with the same values for all four fields. This is what defines an emission factor as a unique entity and allows the system to understand the differences and blanks in the data. 
 
