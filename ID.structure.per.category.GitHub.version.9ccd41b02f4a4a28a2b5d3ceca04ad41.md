@@ -1,4 +1,4 @@
-# ID structure per category (GitHub version-02)
+# ID structure per category
 
 ## Full list of ID structures for different categories that currently exist in the OEFDB:
 
@@ -113,6 +113,3 @@ mhev - mild hybrid electric vehicle (non plug-in, no electric-only mode)
 na - Not available or not applicable - this is used where a given dimension of an ID either doesn't apply to that particular factor (not applicable or provided as an average and therefore not required as an identifier) or is not specified by the source (not available). We use a single value of NA in all cases to avoid large amounts of interpretation being required; the context for each NA is available in the description field of each EF. 
 
 phev - plug-in hybrid electric vehicle
-
-osr - Oil Seed Rape, common source of vegetable oil and used as shorthand for Rapeseed Oil or Canola
-![image](https://user-images.githubusercontent.com/91140837/141784507-1ba4e540-c8c0-431f-8aea-25dee67dd697.png)
