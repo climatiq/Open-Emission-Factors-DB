@@ -1,4 +1,4 @@
-# OEFDB data guidance
+# Data guidance
 
 Welcome to the Open Emission Factors Database (OEFDB) data guidance documentation on GitHub! This document provides definitions and context for each of the different fields available in the [OEFDB](https://github.com/climatiq/Open-Emission-Factors-DB) and explain how we standardize and normalize emission factor data from our sources to allow for straightforward conversion to emission estimations for a given activity, either manually or via the [Climatiq API](https://docs.climatiq.io).
 
