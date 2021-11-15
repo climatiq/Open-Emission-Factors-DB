@@ -19,9 +19,9 @@ Emission factor category. Aligned with `sector`, but more specific.
 **Requirements:** 
 
 - Lowercase alphanumeric, with no special characters except for:
-. for decimal places
-_ instead of spaces
-- to separate sub IDs
+  - `.` for decimal places
+  - `_` instead of spaces
+  - `-` to separate sub IDs
 - Sub IDs are defined per category - see the full list of these in the [ID structure guidance document.](/ID_STRUCTURE_GUIDANCE.md)
 - See a list of glossary terms and abbreviations used in the OEFDB ID field at the foot of the [ID structure guidance document.](/ID_STRUCTURE_GUIDANCE.md)
 
