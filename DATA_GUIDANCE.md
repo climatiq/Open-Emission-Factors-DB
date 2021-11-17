@@ -45,7 +45,7 @@ Examples:
 
 - `kg-CO2e/km` is kgCO2e emissions produced over distance traveled (in kilometers).
 - `kg-CO2e/tkm` is kgCO2e emissions produced per unit of weight (in tonnes) moved a certain distance (in kilometers).
-- `kgCO2e/kwh` is kgCO2e emissions per kilowatt-hour of electricity consumed or expended.
+- `kgCO2e/kWh` is kgCO2e emissions per kilowatt-hour of electricity consumed or expended.
 
 ### factor
 
