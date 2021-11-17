@@ -6,11 +6,11 @@ Welcome to the Open Emission Factors Database (OEFDB) data guidance documentatio
 
 ### sector
 
-The overarching category of an emission factor. 
+The overarching category of an emission factor. Should align with existing sectors in the DB unless proposing a new sector (please include details and justification in the pull request)
 
 ### category
 
-Emission factor category. Aligned with `sector`, but more specific.
+Emission factor category. Aligned with `sector`, but more specific to the activity in question; again this should align with existing unless a new category is being proposed.
 
 ### id
 
@@ -39,13 +39,13 @@ For example: for `id`: "electricity-energy_source_grid_mix", `name` would be: "G
 
 ### unit
 
-The unit of an activity used to multiply with this emission factor to calculate emission estimates for the activity. This value dictates what kind of activity can be used to calculate emission estimates, with further details in methodology provided in the `description` field or by the `source` as linked.
+The unit of an activity used to multiply with this emission factor to calculate emission estimates for the activity. This value dictates what kind of activity can be used to calculate emission estimates, with further details in methodology provided in the `description` field or by the `source` as linked. Units currently supported can be found at https://docs.climatiq.io/.
 
-For example: 
+Examples: 
 
-- `kg-CO2/km` is kgCO2e emissions produced over distance traveled (in kilometers).
-- `kg-CO2/tkm` is kgCO2e emissions produced per unit of weight (in tonnes) moved a certain distance (in kilometers).
-- `kgCO2/kWh` is kgCO2e emissions per kilowatt-hour of electricity consumed or expended.
+- `kg-CO2e/km` is kgCO2e emissions produced over distance traveled (in kilometers).
+- `kg-CO2e/tkm` is kgCO2e emissions produced per unit of weight (in tonnes) moved a certain distance (in kilometers).
+- `kgCO2e/kwh` is kgCO2e emissions per kilowatt-hour of electricity consumed or expended.
 
 ### factor
 
@@ -81,7 +81,7 @@ Descriptive string, giving context and detail about the emission factor. This va
 
 ### date_accessed
 
-This is the date the contributor accessed the data, important for understanding how up to date an emission factor is.
+This is the date the contributor accessed the data, important for understanding how up to date an emission factor is. Expressed in YYYY/MM/DD format.
 
 ### source_link
 
