@@ -1,4 +1,4 @@
-const parse = require("csv-parse");
+const {parse} = require("csv-parse");
 const Joi = require("joi");
 const fs = require("fs");
 const path = require("path");
