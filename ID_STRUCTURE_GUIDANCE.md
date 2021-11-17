@@ -1,6 +1,8 @@
 # ID structure guidance
 
-## Full list of ID structures for different categories that currently exist in the OEFDB:
+## Full list of ID structures for different categories that currently exist in the OEFDB
+
+Please find guidance for population of the `ID` field below, per category. It is advisable that you review existing IDs in the category you intend to contribute to before compiling these alongside other identifying and informative fields as outlined in the [data guidance](/DATA_GUIDANCE.md), to ensure comparability with existing emission factors in the database.
 
 **Electricity**
 
@@ -12,13 +14,13 @@ This category is for estimating the CO2 equivalent emissions of electricity use 
 
 This category is for estimating the CO2 equivalent emissions of fuel production or fuel combustion. 
 
-`fuel_type_[e.g. "butane"]`
+`fuel_type_[e.g. "coal"]-fuel_use_[e.g. "industrial"]`
 
 **Computing (including CPU, Memory, and Networking categories)**
 
 This category is for estimating the CO2 equivalent emissions of CPU utilization, memory, and networking categories within the computing sector.
 
-`category-provider_[e.g. "aws"]-region_[e.g. "af_south_1"]`
+`["cpu" or "memory" or "networking"]-provider_[e.g. "aws"]-region_[e.g. "af_south_1"]`
 
 **Computing (Storage category)**
 
