@@ -29,7 +29,7 @@ Emission factor category. Aligned with `sector`, but more specific.
 
 When designing an ID, the important question is: do you think another emission factor from the same **source**, **region** and **year**, could hold **different methodologies/particularities** for the same activity? If the answer is yes, it needs to be in the ID.
 
-See full list of ID structures here [link].
+See full list of ID structures [here](/ID_STRUCTURE_GUIDANCE.md).
 
 ### name
 
