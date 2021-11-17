@@ -11,4 +11,4 @@ We will be providing some best practice guidelines to using GitHub for data mana
 
 ## Contributing
 
-See [the contribution guide](./CONTRIBUTING.md) for detailed instructions on how to contribute to the OEFDB on GitHub. Once you have familiarised yourself with the process, please do review our data guidance to understand how data needs to be formatted when contributing.
+See [the contribution guide](./CONTRIBUTING.md) for detailed instructions on how to contribute to the OEFDB on GitHub. Once you have familiarised yourself with the process, please do review our [data guidance](./DATA_GUIDANCE.md) to understand how data needs to be formatted when contributing.
