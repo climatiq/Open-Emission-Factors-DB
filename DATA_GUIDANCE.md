@@ -63,7 +63,7 @@ The source from which an emission factor was retrieved. This refers to the publi
 
 ### year
 
-Year for which the emission factor has been calculated according to the source. This number can differ from the year of publication.
+Year of publication of the emission factor by the source. Note that this is typically not the year from which the emissions were calculated - care should be taken when applying emission factors that may vary year-on-year.
 
 ### region
 
