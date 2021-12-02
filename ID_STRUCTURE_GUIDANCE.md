@@ -88,11 +88,22 @@ This category is for estimating the CO2 equivalent emissions of shipping goods b
 
 `sea_transport-vessel_type [e.g. "bulk_carrier"]- route_type_[e.g. "intra_mediterranean"]-vessel_length_[e.g. "gt-8000-teu"]-tonnage_[e.g. "gt_200000dwt"]-fuel_source_[e.g. "na" or "diesel"]`
 
+**Waste Disposal**
+
+This category is for estimating the CO2 equivalent emissions produced by the disposal of waste.
+
+`waste_type_[e.g."aggregates"]-disposal_method_[e.g."open-loop"]`
+
+
 ## Glossary of terms, initialisms, and acronyms used in the OEFDB ID field
 
 avgas - aviation gasoline - petrol-based aviation fuel
 
 avtur - aviation turbine (or jet) fuel - kerosine-based aviation fuel
+
+lldpe - linear low-density polyethylene 
+
+ldpe - low-density polyethylene
 
 lt - less than
 
@@ -104,6 +115,8 @@ gt - greater than (boolean)
 
 gte - great than or equal to (boolean)
 
+hdpe - high-density polyethylene
+
 hev - hybrid electric vehicle (non plug-in, with electric-only mode)
 
 hvo - hydrogenated vegetable oil
@@ -114,4 +127,14 @@ mhev - mild hybrid electric vehicle (non plug-in, no electric-only mode)
 
 na - Not available or not applicable - this is used where a given dimension of an ID either doesn't apply to that particular factor (not applicable or provided as an average and therefore not required as an identifier) or is not specified by the source (not available). We use a single value of NA in all cases to avoid large amounts of interpretation being required; the context for each NA is available in the description field of each EF. 
 
+pet - polyethylene terephthalate
+
 phev - plug-in hybrid electric vehicle
+
+ps - polystrene
+
+pp - polypropylene
+
+pvc - polyvinyl chloride
+
+weee - waste from electrical and electronic equipment
