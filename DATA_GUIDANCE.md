@@ -86,3 +86,7 @@ This is the date the contributor accessed the data, important for understanding 
 ### source_link
 
 Link to the source for reference and cross-validation. This ideally links to the specific emission factor, or if not to the specific file from which the emission factor was retrieved.
+
+### lca_activity
+
+Life cycle assessment activity that each emission factor refers to, ranging from cradle to grave such as upstream (e.g. `fuel_upstream` or `manufacturing`), use phase (e.g. `fuel_combustion`), and end-of-life (e.g. `end_of_life` or `gate_to_grave`) emissions. If the source does not provide such information, the field is marked as `unknown`. 
