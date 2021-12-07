@@ -89,4 +89,4 @@ Link to the source for reference and cross-validation. This ideally links to the
 
 ### lca_activity
 
-Life cycle assessment activity that each emission factor refers to, ranging from cradle to grave such as upstream (e.g. `fuel_upstream` or `manufacturing`), use phase (e.g. `fuel_combustion`), and end-of-life (e.g. `end_of_life` or `gate_to_grave`) emissions. If the source does not provide such information, the field is marked as `unknown`. 
+Life cycle assessment activity to which the emission factor applies. This can be one or several phases from "cradle" to "grave", including upstream (e.g. `fuel_upstream` or `manufacturing`), use phase (e.g. `fuel_combustion`), and end-of-life (e.g. `end_of_life` or `gate_to_grave`) emissions. If the source does not provide such information, the field is marked as `unknown`. 
