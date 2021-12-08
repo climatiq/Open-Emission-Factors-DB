@@ -64,6 +64,12 @@ This category is for estimating the CO2 equivalent emissions of individual (or c
 
 `passenger_ferry-route_type_[e.g. "foot_passenger" or "car_passenger"]-fuel_source_[e.g. "na"]`
 
+**Refrigerants and Fugitive Gases**
+
+This category is for estimating the CO2 equivalent emissions of refrigerant and fugitive gases. Tbese conversion factor should be used to report leakage from air-conditioning refrigeration units or the release to the atmosphere of other gases that have global warming potential (GWP).
+
+`fugitive_gas-type_[e.g. "carbon_dioxide" or "dimethylether"]`
+
 **Road Transport**
 
 This category is for estimating the CO2 equivalent emissions of shipping goods by road.
