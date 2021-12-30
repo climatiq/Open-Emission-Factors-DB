@@ -77,7 +77,7 @@ Region to which the emission factor applies. In order to provide standardised re
 
 ### description
 
-Descriptive string, giving context and detail about the emission factor. This value explains what activity the emission factor applies to, as a complement to the `name` field, and any contextual information the user may need. Can include for example: when and by whom an emission factor was published (if this is not clear from other fields); what activity it describes; or what assumptions were used in its computation. It should not include information that can be gleaned from other fields.
+Descriptive string, giving context and detail about the emission factor. This value explains what activity the emission factor applies to, as a complement to the `name` field, and any contextual information the user may need. Can include for example: when and by whom an emission factor was published (if this is not clear from other fields); what activity it describes, with any terms or initialisms explained; what assumptions or factors were used in its computation or translation from the source. It should not include information that can be gleaned from other fields or easily from the source link.
 
 ### date_accessed
 
