@@ -4,13 +4,27 @@
 
 Please find guidance for population of the `ID` field below, per category. It is advisable that you review existing IDs in the category you intend to contribute to before compiling these alongside other identifying and informative fields as outlined in the [data guidance](/DATA_GUIDANCE.md), to ensure comparability with existing emission factors in the database.
 
-**Electricity**
+***Sector: Agriculture and Fishing and Forestry***
+
+- **Agriculture and Forestry support**  
+- **Arable Farming**  
+- **Livestock Farming**  
+- **Timber and Forestry Products**  
+- **Wild Fish and Game**  
+
+These categories are for estimating the CO2 equivalent emissions of agricultural, fishing and forestry activities.
+
+`[category e.g. "arable_farming"]-type_[e.g. "fresh_vegetables_melons_potatoes"]`  
+
+***Sector: Energy***
+
+- **Electricity**
 
 This category is for estimating the CO2 equivalent emissions of electricity use or production.
 
 `electricity-energy_source_[e.g. "grid_mix" or "coal_fired_plant"]`
 
-**Fuel**
+- **Fuel**
 
 This category is for estimating the CO2 equivalent emissions of fuel production or fuel combustion. 
 
