@@ -92,7 +92,7 @@ This category is for estimating the CO2 equivalent emissions of fuel production 
 - **Machinery**
 - **Office equipment**
 
-This category is for estimating the CO2 equivalent emissions incurred through expenditure on equipment. 
+These categories are for estimating the CO2 equivalent emissions incurred through expenditure on equipment. 
 
 `[category e.g. "office_equipment"]-type_[e.g. "office_supplies_not_paper"]`
 \
@@ -103,7 +103,7 @@ This category is for estimating the CO2 equivalent emissions incurred through ex
 - **Health Care**
 - **Social Care**
 
-This category is for estimating the CO2 equivalent emissions incurred through expenditure on health or social care services or supplies. 
+These categories are for estimating the CO2 equivalent emissions incurred through expenditure on health or social care services or supplies. 
 
 `["health" or "social"]_care-type_[e.g. "vaccines_other_biological_medical_products"]`
 \
