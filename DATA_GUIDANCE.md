@@ -12,9 +12,9 @@ The overarching category of an emission factor. Should align with existing secto
 
 Emission factor category. Aligned with `sector`, but more specific to the activity in question; again this should align with existing unless a new category is being proposed.
 
-### id
+### activity_id
 
-[Canonical](https://en.wikipedia.org/wiki/Canonicalization) identifying value of an emission factor. Normalized to provide comparability in emission factors from different sources. This is the main data point referred to when choosing a calculation method. This value needs to be descriptive and concise, and always watch that there are no duplicates with the same year, source, and region for different emission factors.
+[Canonical](https://en.wikipedia.org/wiki/Canonicalization) identifying value of an emission factor for a given activity. Normalized to provide comparability in emission factors from different sources. This is the main data point referred to when choosing a calculation method. This value needs to be descriptive and concise, and always watch that there are no duplicates with the same year, source, and region for different emission factors.
 
 **Requirements:** 
 
@@ -37,21 +37,23 @@ Display name of the emission factor. This field provides a human-readable versio
 
 For example: for `id`: "electricity-energy_source_grid_mix", `name` would be: "Grid mix", contextualised by being in the Energy category, and the region, source and year attributed to the emission factor.
 
-### unit
+### activity_unit
 
 The unit of an activity used to multiply with this emission factor to calculate emission estimates for the activity. This value dictates what kind of activity can be used to calculate emission estimates, with further details in methodology provided in the `description` field or by the `source` as linked. Units currently supported can be found at https://docs.climatiq.io/.
 
-Examples: 
+### GHG gasses (unit headers below)
 
-- `kg-CO2e/km` is kgCO2e emissions produced over distance traveled (in kilometers).
-- `kg-CO2e/tkm` is kgCO2e emissions produced per unit of weight (in tonnes) moved a certain distance (in kilometers).
-- `kgCO2e/kWh` is kgCO2e emissions per kilowatt-hour of electricity consumed or expended.
+The emissions produced by this activity per `activity_unit`. This is the linear calculation factor used to perform emission calculations.
 
-### factor
+The following emission volumes are available (NB not every gas will be available for each activity):
 
-The emissions produced by this activity in **kgCO2e** per `unit`. This is the linear calculation factor used to perform the emission calculation.
-
-The value is always expressed in kgCO2e, also known as kgCO2 equivalent. This value includes all emitted GHG emissions and is computed based on GWP (global warming potential). 
+- `kgCO2e-AR5`: 100-year Global Warming Potential of all included GHGs expressed in kgCO2-equivalent according to the IPCC's Fifth Assessment Report
+- `kgCO2e-AR4`: 100-year Global Warming Potential of all included GHGs expressed in kgCO2-equivalent according to the IPCC's Fourth Assessment Report
+- `kgCO2`: Carbon dioxide emissions
+-	`kgCH4`: Methane emissions
+- `kgN2O`: Nitrous oxide emissions
+- `kgCO2e-OtherGHGs-AR5`: 100-year Global Warming Potential of GHGs other than CO2, CH4 or N2O, expressed in kgCO2-equivalence according to the IPCC's Fifth Assessment Report
+- `kgCO2e-OtherGHGs-AR4`: 100-year Global Warming Potential of GHGs other than CO2, CH4 or N2O, expressed in kgCO2-equivalence according to the IPCC's Fourth Assessment Report
 
 ### uncertainty
 
