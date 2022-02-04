@@ -41,7 +41,7 @@ For example: for `id`: "electricity-energy_source_grid_mix", `name` would be: "G
 
 The unit of an activity used to multiply with this emission factor to calculate emission estimates for the activity. This value dictates what kind of activity can be used to calculate emission estimates, with further details in methodology provided in the `description` field or by the `source` as linked. Units currently supported can be found at https://docs.climatiq.io/.
 
-### GHG gasses (unit headers below)
+### GHG gasses (multiple: field definitions below)
 
 The emissions produced by this activity per `activity_unit`. This is the linear calculation factor used to perform emission calculations.
 
