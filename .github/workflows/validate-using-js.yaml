@@ -1,4 +1,4 @@
-name: CSV File Validation
+name: CSV File Validation (using JS)
 
 on:
   push:
