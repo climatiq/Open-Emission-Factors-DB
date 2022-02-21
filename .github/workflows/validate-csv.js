@@ -5,7 +5,8 @@ const path = require("path");
 
 const numberOrEmpty = Joi.alternatives([
   Joi.number(),
-  Joi.string().valid('')
+  Joi.string().valid(''),
+  Joi.string().valid('not-supplied'),
 ]);
 
 // Validation schema
