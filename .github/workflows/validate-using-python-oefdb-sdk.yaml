@@ -1,0 +1,50 @@
+name: CSV File Validation (using python-oefdb-sdk)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [ 3.9 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Clone python-oefdb-sdk
+        uses: actions/checkout@v2
+        with:
+          repository: climatiq/python-oefdb-sdk
+          path: python-oefdb-sdk
+          ssh-key: ${{ secrets.PYTHON_OEFDB_SDK_DEPLOY_PRIVATE_KEY }}
+      - name: Load cached Poetry installation
+        uses: actions/cache@v2
+        with:
+          path: ~/.local
+          key: poetry-${{ runner.os }}-${{ hashFiles('.github/workflows/validate-using-python-oefdb-sdk.yaml') }}
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: python-oefdb-sdk/.venv
+          key: venv-${{ runner.os }}-${{matrix.python}}-${{ hashFiles('python-oefdb-sdk/pyproject.toml') }}
+      - name: Install dependencies
+        run: poetry install --no-dev
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        working-directory: python-oefdb-sdk
+      - name: Validate file
+        run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
+        working-directory: python-oefdb-sdk
