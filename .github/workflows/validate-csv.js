@@ -3,6 +3,11 @@ const Joi = require("joi");
 const fs = require("fs");
 const path = require("path");
 
+const numberOrEmpty = Joi.alternatives([
+  Joi.number(),
+  Joi.string().valid('')
+]);
+
 // Validation schema
 const schemaObject = {
   sector: Joi.string(),
@@ -12,15 +17,15 @@ const schemaObject = {
     .min(3),
   name: Joi.string(),
   activity_unit: Joi.string(),
-  "kgCO2e-AR5": Joi.number().allow(null),
-  "kgCO2e-AR4": Joi.number().allow(null),
-  "kgCO2": Joi.number().allow(null),
-  "kgCH4": Joi.number().allow(null),
-  "kgN2O": Joi.number().allow(null),
-  "kgCO2e-OtherGHGs-AR5": Joi.number().allow(null),
-  "kgCO2e-OtherGHGs-AR4": Joi.number().allow(null),
-  uncertainty: Joi.number().allow(""),
-  scope: Joi.string(),
+  "kgCO2e-AR5": numberOrEmpty,
+  "kgCO2e-AR4": numberOrEmpty,
+  "kgCO2": numberOrEmpty,
+  "kgCH4": numberOrEmpty,
+  "kgN2O": numberOrEmpty,
+  "kgCO2e-OtherGHGs-AR5": numberOrEmpty,
+  "kgCO2e-OtherGHGs-AR4": numberOrEmpty,
+  uncertainty: numberOrEmpty,
+  scope: Joi.string().allow(""),
   lca_activity: Joi.string(),
   source: Joi.string(),
   year_released: Joi.number().integer().min(1900),
