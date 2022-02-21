@@ -7,6 +7,7 @@ const numberOrEmpty = Joi.alternatives([
   Joi.number(),
   Joi.string().valid(''),
   Joi.string().valid('not-supplied'),
+  Joi.string().regex(/-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+\-]?\d+)?/)
 ]);
 
 // Validation schema
