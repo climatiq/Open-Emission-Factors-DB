@@ -5,22 +5,29 @@ const path = require("path");
 
 // Validation schema
 const schemaObject = {
-  id: Joi.string()
-    .regex(/[a-zA-Z0-9\-]+/)
-    .min(3),
   sector: Joi.string(),
   category: Joi.string(),
+  activity_id: Joi.string()
+    .regex(/[a-zA-Z0-9\-]+/)
+    .min(3),
   name: Joi.string(),
-  unit: Joi.string(),
-  factor: Joi.number(),
+  activity_unit: Joi.string(),
+  "kgCO2e-AR5": Joi.number(),
+  "kgCO2e-AR4": Joi.number(),
+  "kgCO2": Joi.number(),
+  "kgCH4": Joi.number(),
+  "kgN2O": Joi.number(),
+  "kgCO2e-OtherGHGs-AR5": Joi.number(),
+  "kgCO2e-OtherGHGs-AR4": Joi.number(),
   uncertainty: Joi.number().allow(""),
+  scope: Joi.string(),
+  lca_activity: Joi.string(),
   source: Joi.string(),
-  year: Joi.number().integer().min(1900),
+  year_released: Joi.number().integer().min(1900),
   region: Joi.string(),
   date_accessed: Joi.string().regex(/^\d{4}\/\d{2}\/\d{2}$/),
   description: Joi.string(),
   source_link: Joi.string(),
-  activity: Joi.string(),
 };
 const schema = Joi.object(schemaObject);
 
