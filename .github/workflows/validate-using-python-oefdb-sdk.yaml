@@ -43,7 +43,6 @@ jobs:
           key: venv-${{ runner.os }}-${{matrix.python}}-${{ hashFiles('python-oefdb-sdk/pyproject.toml') }}
       - name: Install dependencies
         run: poetry install --no-dev
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         working-directory: python-oefdb-sdk
       - name: Validate file
         run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
