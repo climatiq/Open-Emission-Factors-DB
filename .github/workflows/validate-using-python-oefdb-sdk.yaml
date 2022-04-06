@@ -41,7 +41,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: python-oefdb-sdk/.venv
-          key: venv-${{ runner.os }}-${{matrix.python}}-${{ hashFiles('python-oefdb-sdk/pyproject.toml') }}
+          key: venv-${{ runner.os }}-${{matrix.python}}-${{ hashFiles('.github/workflows/validate-using-python-oefdb-sdk.yaml') }}-${{ hashFiles('python-oefdb-sdk/pyproject.toml') }}
       - name: Install dependencies
         run: poetry install --no-dev
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
