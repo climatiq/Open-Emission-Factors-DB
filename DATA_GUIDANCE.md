@@ -61,13 +61,25 @@ The following emission volumes are available (NB not every gas will be available
 
 This field provides any uncertainty (expressed as %) around the emission factor mentioned by the source.
 
+### scope
+
+This field provides the scope of emissions identified by the source. The scopes are 1,2, and 3, or a combination of these. There is also "Outside of scopes", which includes biogenic CO2 factors that should be used to account for the direct carbon dioxide (CO2) impact of burning biomass and biofuels.
+
 ### source
 
 The source from which an emission factor was retrieved. This refers to the publishing entity, which may not be the original calculator of the emission factor.
 
-### year
+### year_released
 
 Year of publication of the emission factor by the source. Note that this is typically not the year from which the emissions were calculated - care should be taken when applying emission factors that may vary year-on-year.
+
+### years_valid
+
+The range of years for which the data is considered valid by the source.
+
+### years_calculated_from
+
+The range of years for which the data is calculated from, if such information is provided by the source.
 
 ### region
 
@@ -78,6 +90,21 @@ Region to which the emission factor applies. In order to provide standardised re
 **Countries**: [https://unece.org/trade/cefact/unlocode-code-list-country-and-territory](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)
 
 **Subdivisions** (regions): [https://unece.org/trade/uncefact/unlocode-country-subdivisions-iso-3166-2](https://unece.org/trade/uncefact/unlocode-country-subdivisions-iso-3166-2)
+
+### data_quality
+
+This field flags any wrong/unreliable data point detected by the team or users. Data quality labels are as follows:
+
+- `o`: outlier 
+-	`e`: erroneous calculation 
+-	`od`: outdated
+-	`p`: partial factor (e.g. CO2 only)
+-	`h`: suspicious homogeneity across multiple entries 
+-	`m`: notable methodological variance or lack of clarity
+
+### contributor
+
+The contributor is either the organization, which officially provided the data point or the GitHub handler of the person who provided the contribution.
 
 ### description
 
