@@ -63,7 +63,7 @@ This field provides any uncertainty (expressed as %) around the emission factor 
 
 ### scope
 
-This field provides the scope of emissions identified by the source. The scopes are 1,2, and 3, or a combination of these. There is also "Outside of scopes", which includes biogenic CO2 factors that should be used to account for the direct carbon dioxide (CO2) impact of burning biomass and biofuels.
+This field provides the scope of emissions identified by the source. The scopes are 1,2, and 3, or a combination of these. The format includes `|` as a delimiter between values. There is also "Outside of scopes", which includes biogenic CO2 factors that should be used to account for the direct carbon dioxide (CO2) impact of burning biomass and biofuels.
 
 ### source
 
@@ -93,18 +93,18 @@ Region to which the emission factor applies. In order to provide standardised re
 
 ### data_quality
 
-This field flags any wrong/unreliable data point detected by the team or users. Data quality labels are as follows:
+This field flags any wrong/unreliable data point detected by the team or users. The format includes `|` as a delimiter between values. Data quality labels are as follows:
 
 - `o`: outlier 
 -	`e`: erroneous calculation 
--	`od`: outdated
+-	`d`: outdated
 -	`p`: partial factor (e.g. CO2 only)
 -	`h`: suspicious homogeneity across multiple entries 
 -	`m`: notable methodological variance or lack of clarity
 
 ### contributor
 
-The contributor is either the organization, which officially provided the data point or the GitHub handler of the person who provided the contribution.
+The contributor is either the organization, which officially provided the data point or the GitHub handle of the person who provided the contribution.
 
 ### description
 
