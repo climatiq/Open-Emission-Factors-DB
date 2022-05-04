@@ -4,6 +4,8 @@ name: Publish OEFDB Google Spreadsheet
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   publish-oefdb-gsheet:
