@@ -25,7 +25,7 @@ jobs:
           id_token_include_email: true
       - name: Trigger the creation of a OEFDB Google spreadsheet that matches the latest commit in the main branch
         run: |-
-          curl --fail --header "Authorization: Bearer ${{ steps.auth.outputs.id_token }}" \
-          https://europe-west3-clerk-dev-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet
+          curl https://europe-west3-clerk-dev-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet \
+          --fail --header "Authorization: Bearer ${{ steps.auth.outputs.id_token }}"
       - name: Invalidate the gsheet redirect cache (simply by querying the public redirect endpoint)
         run: curl -i --fail https://collaboration.climatiq.io/gsheet
