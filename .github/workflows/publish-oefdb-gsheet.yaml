@@ -29,7 +29,3 @@ jobs:
             --header "Authorization: Bearer ${{ steps.auth.outputs.id_token }}" --fail
       - name: Invalidate the gsheet redirect cache (simply by querying the public redirect endpoint)
         run: curl --fail https://motin-oefdb-collaboration-app.vercel.app/gsheet
-      - name: Echo access_token
-        run: "echo steps.auth.outputs.id_token: ${{ steps.auth.outputs.access_token }}"
-      - name: Echo id_token
-        run: "echo steps.auth.outputs.id_token: ${{ steps.auth.outputs.id_token }}"
