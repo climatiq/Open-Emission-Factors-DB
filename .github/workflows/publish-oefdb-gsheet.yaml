@@ -1,0 +1,26 @@
+name: Publish OEFDB Google Spreadsheet
+
+# On each push/merge to main...
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish-oefdb-gsheet:
+    runs-on: ubuntu-latest
+    steps:
+      - id: 'auth'
+        name: Authenticate with Google Cloud
+        uses: 'google-github-actions/auth@v0.4.0'
+        with:
+          token_format: 'id_token'
+          workload_identity_provider: 'projects/103397517894/locations/global/workloadIdentityPools/gh-actions-identity-pool/providers/gh-identity-provider'
+          service_account: 'gh-actions-function-invoker@oefdb-data-workflows.iam.gserviceaccount.com'
+          id_token_audience: 'https://europe-west3-clerk-dev-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet'
+          id_token_include_email: true
+      - name: Trigger the creation of a OEFDB Google spreadsheet that matches the latest commit in the main branch
+        run: |-
+          curl -v https://europe-west3-clerk-dev-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet \
+            --header "Authorization: Bearer ${{ steps.auth.outputs.access_token }}"
+      - name: Invalidate the gsheet redirect cache (simply by querying the public redirect endpoint)
+        run: curl -v https://motin-oefdb-collaboration-app.vercel.app/gsheet
