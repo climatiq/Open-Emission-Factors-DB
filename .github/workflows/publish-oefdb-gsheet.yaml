@@ -28,4 +28,4 @@ jobs:
           curl --fail --header "Authorization: Bearer ${{ steps.auth.outputs.id_token }}" \
           https://europe-west3-clerk-dev-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet
       - name: Invalidate the gsheet redirect cache (simply by querying the public redirect endpoint)
-        run: curl -i --fail https://motin-oefdb-collaboration-app.vercel.app/gsheet 1> /dev/null
+        run: curl -i --fail https://motin-oefdb-collaboration-app.vercel.app/gsheet
