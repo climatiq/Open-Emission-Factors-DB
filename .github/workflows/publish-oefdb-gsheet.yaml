@@ -10,6 +10,9 @@ on:
 jobs:
   publish-oefdb-gsheet:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'read'
     steps:
       - id: 'auth'
         name: Authenticate with Google Cloud
