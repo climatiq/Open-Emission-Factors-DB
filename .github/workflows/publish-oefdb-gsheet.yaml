@@ -19,13 +19,13 @@ jobs:
         uses: 'google-github-actions/auth@v0.4.0'
         with:
           token_format: 'id_token'
-          workload_identity_provider: 'projects/103397517894/locations/global/workloadIdentityPools/gh-actions-identity-pool/providers/gh-identity-provider'
-          service_account: 'gh-actions-function-invoker@clerk-dev-oefdb-data-workflows.iam.gserviceaccount.com'
-          id_token_audience: 'https://europe-west3-clerk-dev-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet'
+          workload_identity_provider: 'projects/748415709736/locations/global/workloadIdentityPools/gh-actions-identity-pool/providers/gh-identity-provider'
+          service_account: 'gh-actions-function-invoker@oefdb-data-workflows.iam.gserviceaccount.com'
+          id_token_audience: 'https://europe-west3-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet'
           id_token_include_email: true
       - name: Trigger the creation of a OEFDB Google spreadsheet that matches the latest commit in the main branch
         run: |-
-          curl https://europe-west3-clerk-dev-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet \
+          curl https://europe-west3-oefdb-data-workflows.cloudfunctions.net/create_oefdb_gsheet \
           --fail --header "Authorization: Bearer ${{ steps.auth.outputs.id_token }}"
       - name: Invalidate the gsheet redirect cache (simply by querying the public redirect endpoint)
         run: curl -i --fail https://collaboration.climatiq.io/gsheet
