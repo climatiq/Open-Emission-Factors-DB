@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
 
+  # Enable manual invocation of workflow
+  workflow_dispatch:
+
 jobs:
   publish-oefdb-gsheet:
     runs-on: ubuntu-latest
