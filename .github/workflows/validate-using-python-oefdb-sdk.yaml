@@ -51,6 +51,7 @@ jobs:
       - name: Validate OEFDB
         run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
         working-directory: python-oefdb-sdk
-      - name: Validate OEFDB
-        run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
+      - name: Validate OEFDB schema
+        if: always()
+        run: poetry run oefdb_validate_schema -i ../OpenEmissionFactorsDB.csv
         working-directory: python-oefdb-sdk
