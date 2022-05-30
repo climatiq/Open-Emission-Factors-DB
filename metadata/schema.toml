@@ -1,6 +1,7 @@
 # This is the schema file for the OEFDB.
 # It is a TOML file - for more information on the format, see here https://github.com/toml-lang/toml
 # It currently contains a list of columns, and what data is valid for each column
+# Lines starting with "#"'s are comments
 
 # See the description of the first column for the structure of the column
 
