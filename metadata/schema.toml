@@ -15,7 +15,7 @@ allow_empty = false
 
 [[columns]]
 name = "name"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["is_allowed_string"]
 allow_empty = false
 
 [[columns]]
