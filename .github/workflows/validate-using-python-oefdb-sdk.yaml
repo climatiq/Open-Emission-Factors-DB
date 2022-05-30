@@ -23,8 +23,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: climatiq/python-oefdb-sdk
-          #TODO REMOVE!
-          ref: 'feature/validation-v2'
           path: python-oefdb-sdk
           ssh-key: ${{ secrets.PYTHON_OEFDB_SDK_DEPLOY_PRIVATE_KEY }}
       - name: Load cached Poetry installation
