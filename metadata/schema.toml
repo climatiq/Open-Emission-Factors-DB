@@ -83,7 +83,6 @@ name = "year_released"
 validators = ["is_year"]
 allow_empty = false
 
-
 [[columns]]
 name = "years_valid"
 validators = ["is_allowed_string", "is_ascii"]
