@@ -53,5 +53,5 @@ jobs:
         working-directory: python-oefdb-sdk
       - name: Validate OEFDB schema
         if: always()
-        run: poetry run oefdb_validate_schema -i ../OpenEmissionFactorsDB.csv
+        run: poetry run oefdb_validate_schema -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml
         working-directory: python-oefdb-sdk
