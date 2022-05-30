@@ -1,8 +1,22 @@
+# This is the schema file for the OEFDB.
+# It is a TOML file - for more information on the format, see here https://github.com/toml-lang/toml
+# It currently contains a list of columns, and what data is valid for each column
+
+# See the description of the first column for the structure of the column
+
+# The [[columns]] denotes the start of a new column
+# The columns are ordered - it is checked that the columns are in the same order in this file and in the CSV file
 [[columns]]
+# This is the name of the column - aka the name that is in the header row
 name = "sector"
+# This is the list of "validators" to apply to each value in the column. Each validator will validate some aspect of of the value
+# All validators must pass for a value to be considered valid.
 validators = ["is_allowed_string", "is_ascii"]
+# Most validators expect that the CSV value is not-empty. If you want to allow *both* empty values, and values that pass
+# all validators, set allow_empty to be true. Then empty values will always be considered valid
 allow_empty = false
 
+# Here another [[columns]] denotes the start of the next column, and so forth
 [[columns]]
 name = "category"
 validators = ["is_allowed_string", "is_ascii"]
