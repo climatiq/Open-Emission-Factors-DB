@@ -86,7 +86,7 @@ allow_empty = true
 [[columns]]
 name = "lca_activity"
 validators = ["is_allowed_string", "is_ascii"]
-allow_empty = false
+allow_empty = true
 
 [[columns]]
 name = "source"
