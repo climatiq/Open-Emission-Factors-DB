@@ -23,6 +23,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: climatiq/python-oefdb-sdk
+          #TODO REMOVE
+          ref: 'feature/validation-v2'
           path: python-oefdb-sdk
           ssh-key: ${{ secrets.PYTHON_OEFDB_SDK_DEPLOY_PRIVATE_KEY }}
       - name: Load cached Poetry installation
@@ -46,6 +48,9 @@ jobs:
         run: poetry install --no-dev
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         working-directory: python-oefdb-sdk
-      - name: Validate file
+      - name: Validate OEFDB
+        run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
+        working-directory: python-oefdb-sdk
+      - name: Validate OEFDB
         run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
         working-directory: python-oefdb-sdk
