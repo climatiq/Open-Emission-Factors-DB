@@ -24,7 +24,8 @@ allow_empty = false
 # If there is a pre-defined set of values that are allowed in a field you can add the "allowed_values"
 # attribute. Note that allow_empty still counts, so if allow_empty is set to true, the cell does not have to be one
 # of the allowed values.
-allowed_values =[
+allowed_values = [
+    # You can write comments inside this list to add notes to the different options
     "Agriculture/Hunting/Forestry/Fishing",
     "Buildings and Infrastructure",
     "Consumer Goods and Services",
