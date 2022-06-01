@@ -5,6 +5,11 @@
 
 # See the description of the first column for the structure of the column
 
+[[columns]]
+name = "id"
+validators = ["is_uuid"]
+allow_empty = false
+
 # The [[columns]] denotes the start of a new column
 # The columns are ordered - it is checked that the columns are in the same order in this file and in the CSV file
 [[columns]]
@@ -12,31 +17,176 @@
 name = "sector"
 # This is the list of "validators" to apply to each value in the column. Each validator will validate some aspect of of the value
 # All validators must pass for a value to be considered valid.
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["has_no_commas", "is_ascii"]
 # Most validators expect that the CSV value is not-empty. If you want to allow *both* empty values, and values that pass
 # all validators, set allow_empty to be true. Then empty values will always be considered valid
 allow_empty = false
+# If there is a pre-defined set of values that are allowed in a field you can add the "allowed_values"
+# attribute. Note that allow_empty still counts, so if allow_empty is set to true, the cell does not have to be one
+# of the allowed values.
+allowed_values =[
+    "Agriculture/Hunting/Forestry/Fishing",
+    "Buildings and Infrastructure",
+    "Consumer Goods and Services",
+    "Education",
+    "Energy",
+    "Equipment",
+    "Health and Social Care",
+    "Information and Communication",
+    "Insurance and Financial Services",
+    "Materials and Manufacturing",
+    "Organizational Activities",
+    "Refrigerants and Fugitive Gases",
+    "Restaurants and Accommodation",
+    "Transport",
+    "Waste",
+    "Water",
+]
 
 # Here another [[columns]] denotes the start of the next column, and so forth
 [[columns]]
 name = "category"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["has_no_commas", "is_ascii"]
 allow_empty = false
+allowed_values = [
+    "Agriculture/Hunting/Forestry/Fishing",
+    "Arable Farming",
+    "Fishing/Aquaculture/Hunting",
+    "Livestock Farming",
+    "Timber and Forestry Products",
+    "Construction",
+    "Housing",
+    "Infrastructure",
+    "Maintenance and Repair",
+    "Pavement and Surfacing",
+    "Real Estate",
+    "Utilities",
+    "Clothing and Footwear",
+    "Consumer Goods Rental",
+    "DIY and Gardening Equipment",
+    "Domestic Services",
+    "Domestic services",
+    "Food/Beverages/Tobacco",
+    "Furnishings and Household",
+    "General Retail",
+    "Health Care",
+    "Paper Products",
+    "Personal Care and Accessories",
+    "Professional services",
+    "Recreation and Culture",
+    "Textiles",
+    "Vehicle Maintenance and Services",
+    "Education",
+    "Electricity",
+    "Energy Services",
+    "Fuel",
+    "Heat and Steam",
+    "Electrical Equipment",
+    "Electronics",
+    "Equipment Rental",
+    "Equipment Repair",
+    "Machinery",
+    "Office equipment",
+    "Office Equipment",
+    "Health and Social Care",
+    "Social Care",
+    "Cloud Computing - CPU",
+    "Cloud Computing - Memory",
+    "Cloud Computing - Networking",
+    "Cloud Computing - Storage",
+    "Information and Communication Services",
+    "Financial Services",
+    "Insurance Services",
+    "Building Materials",
+    "Ceramic Goods",
+    "Chemical Products",
+    "Fabricated Metal Products",
+    "Glass and Glass Products",
+    "Manufacturing",
+    "Metals",
+    "Mined Materials",
+    "Mining",
+    "Organic Products",
+    "Other Materials",
+    "Paper and Cardboard",
+    "Plastics and Rubber Products",
+    "Vehicle Parts",
+    "Government Activities",
+    "Non-profit Activities",
+    "Operational Activities",
+    "Organizational Activities",
+    "Professional Services and Activities",
+    "Wholesale Trade",
+    "Refrigerants and Fugitive Gases",
+    "Accommodation",
+    "Food and Beverage Services",
+    "Restaurants and Accommodation",
+    "Air Freight",
+    "Air Travel",
+    "Rail Freight",
+    "Rail Travel",
+    "Road Freight",
+    "Road Travel",
+    "Sea Freight",
+    "Sea Travel",
+    "Tickets and Passes",
+    "Transport Services and Warehousing",
+    "Vehicles",
+    "Construction Waste",
+    "Electrical Waste",
+    "Food and Organic Waste",
+    "General Waste",
+    "Glass Waste",
+    "Metal Waste",
+    "Paper and Cardboard Waste",
+    "Plastic Waste",
+    "Waste Management",
+    "Water Supply",
+    "Water Treatment",
+]
 
 [[columns]]
 name = "activity_id"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["is_valid_activity_id", "is_ascii"]
 allow_empty = false
 
 [[columns]]
 name = "name"
-validators = ["is_allowed_string"]
+validators = ["has_no_commas"]
 allow_empty = false
 
 [[columns]]
 name = "activity_unit"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["has_no_commas", "is_ascii"]
 allow_empty = false
+allowed_values = [
+    "USD",
+    "EUR",
+    "tonne",
+    "GBP",
+    "kg",
+    "kWh",
+    "MMBTU",
+    "short ton",
+    "gal (US)",
+    "L",
+    "GJ",
+    "scf",
+    "m3",
+    "CPU-hour",
+    "GB-hour",
+    "GB",
+    "TB-hour",
+    "person-night",
+    "tonne-km",
+    "ton-mile",
+    "passenger-mile",
+    "km",
+    "passenger-km",
+    "mile",
+]
+
+
 
 [[columns]]
 name = "kgCO2e-AR5"
@@ -82,16 +232,73 @@ allow_empty = true
 name = "scope"
 validators = []
 allow_empty = true
+allowed_values = [
+    "1",
+    "2",
+    "3",
+    "2|3",
+    "1|2|3",
+    "Outside of scopes",
+    "not-supplied",
+]
 
 [[columns]]
 name = "lca_activity"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["has_no_commas", "is_ascii"]
 allow_empty = true
+allowed_values = [
+    "cradle_to_shelf",
+    "unknown",
+    "cradle_to_gate",
+    "upstream-fuel_combustion",
+    "well_to_tank",
+    "electricity_generation",
+    "upstream",
+    "electricity_consumption",
+    "upstream-fuel_combustion-fugitive_emissions",
+    "fuel_upstream-fuel_combustion-transport_and_delivery",
+    "fuel_upstream-plant_amortization-fuel_combustion-fugitive_emissions",
+    "fuel_upstream-plant_amortization-fuel_combustion-transport_and_delivery",
+    "transmission_and_distribution",
+    "fuel_combustion",
+    "use_phase",
+    "fuel_upstream-fuel_combustion-fugitive_emissions",
+    "upstream-electricity_consumption",
+    "upstream-use_phase",
+    "fuel_upstream-manufacturing",
+    "fuel_upstream-manufacturing-fuel_combustion",
+    "fuel_upstream-fuel_combustion",
+    "upstream-manufacturing-fuel_combustion",
+    "upstream-manufacturing",
+    "well_to_propeller",
+    "manufacturing-electricity_consumption",
+    "end_of_life",
+    "gate_to_grave",
+]
 
 [[columns]]
 name = "source"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["has_no_commas", "is_ascii"]
 allow_empty = false
+allowed_values = [
+    "EPA",
+    "GHG Protocol",
+    "EXIOBASE",
+    "BEIS",
+    "ADEME",
+    "EMA",
+    "DEWA",
+    "CT",
+    "AIB",
+    "DISER",
+    "UNFCCC",
+    "HKEI",
+    "MfE",
+    "EPPO",
+    "CCF",
+    "UBA",
+    "STC-Nestra B.V.",
+]
 
 [[columns]]
 name = "year_released"
@@ -100,7 +307,7 @@ allow_empty = false
 
 [[columns]]
 name = "years_valid"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["has_no_commas", "is_ascii"]
 allow_empty = true
 
 [[columns]]
@@ -110,17 +317,23 @@ allow_empty = true
 
 [[columns]]
 name = "region"
-validators = ["is_allowed_string", "is_ascii"]
+validators = ["has_no_commas", "is_ascii"]
 allow_empty = false
 
 [[columns]]
 name = "data_quality"
 validators = []
-allow_empty = false
+allow_empty = true
+allowed_values = [
+    "o",
+    "h",
+    "o|h",
+    "m",
+]
 
 [[columns]]
 name = "contributor"
-validators = ["is_allowed_string"]
+validators = ["has_no_commas"]
 allow_empty = true
 
 [[columns]]
@@ -130,7 +343,7 @@ allow_empty = false
 
 [[columns]]
 name = "description"
-validators = ["is_allowed_string"]
+validators = ["has_no_commas"]
 allow_empty = false
 
 [[columns]]
