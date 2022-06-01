@@ -120,4 +120,14 @@ Link to the source for reference and cross-validation. This ideally links to the
 
 ### lca_activity
 
-Life cycle assessment activity to which the emission factor applies. This can be one or several phases from "cradle" to "grave", including upstream (e.g. `fuel_upstream` or `manufacturing`), use phase (e.g. `fuel_combustion`), and end-of-life (e.g. `end_of_life` or `gate_to_grave`) emissions. If the source does not provide such information, the field is marked as `unknown`. 
+Life cycle assessment activity to which the emission factor applies. This can be one or several phases from "cradle" to "grave", including: 
+
+**upstream emissions**; LCA activities included in the OEFDB for this phase are:  `cradle_to_shelf`, `cradle_to_gate`, `fuel_upstream`, `manufacturing`, `plant_amortization`, `fugitive_emissions`, `well_to_propeller`, `well_to_tank`, `upstream`
+
+**use_phase emissions**; LCA activities included in the OEFDB for this phase are: `electricity_consumption` (including transmission and distribution losses), `electricity_generation` (excluding transmission and distribution losses), `fuel_combustion`, `use_phase`
+
+**end-of-life emissions**; LCA activities included in the OEFDB for this phase are: `gate_to_grave`, `end_of_life`
+
+There are also `transport_and_delivery`, `transmission_and_distribution` emissions. 
+
+If the source does not provide such information, the field is marked as `unknown`.
