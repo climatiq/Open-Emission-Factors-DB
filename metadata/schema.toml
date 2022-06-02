@@ -3,6 +3,7 @@
 # It currently contains a list of columns, and what data is valid for each column
 # Lines starting with "#"'s are comments
 
+# Explicit documentation for the schema and the validators are available here: https://github.com/climatiq/python-oefdb-sdk#schema-validation
 # See the description of the first column for the structure of the column
 
 
