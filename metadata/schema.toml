@@ -5,10 +5,7 @@
 
 # See the description of the first column for the structure of the column
 
-[[columns]]
-name = "id"
-validators = ["is_uuid"]
-allow_empty = false
+
 
 # The [[columns]] denotes the start of a new column
 # The columns are ordered - it is checked that the columns are in the same order in this file and in the CSV file
