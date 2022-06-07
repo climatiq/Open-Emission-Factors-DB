@@ -51,5 +51,18 @@ jobs:
         working-directory: python-oefdb-sdk
       - name: Validate OEFDB schema
         if: always()
-        run: poetry run oefdb_validate_schema -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml
+        run: echo '::set-output name=CLI_OUTPUT::$(poetry run oefdb_validate_schema --fix -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml)
         working-directory: python-oefdb-sdk
+
+      - name: 'Write comment that explains formatting'
+        #if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        uses: actions/github-script@v5
+        with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: 'This PR has automatically been formatted. ´code´ `code block`'
+                })
