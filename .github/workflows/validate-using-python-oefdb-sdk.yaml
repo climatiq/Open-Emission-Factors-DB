@@ -70,5 +70,5 @@ jobs:
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  body: 'The SDK autofixer has encountered something it could fix automatically. \n It has automatically fixed some lines and pushed a new commit to your branch. \n ${{steps.schema_validation.outputs.cli_output}} \r\n  Please inspect the output below, and pull down the latest commit to ensure that everything looks right. ```\r\n ${{steps.schema_validation.outputs.cli_output}} \r\n```'
+                  body: 'The SDK autofixer has encountered something it could fix automatically. \n It has automatically fixed some lines and pushed a new commit to your branch. \n ${{steps.schema_validation.outputs.cli_output}} \r\n  Please inspect the output below, and pull down the latest commit to ensure that everything looks right. \n ```\r\n ${{steps.schema_validation.outputs.cli_output}} \r\n```'
                 })
