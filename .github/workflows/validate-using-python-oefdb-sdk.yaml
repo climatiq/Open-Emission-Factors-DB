@@ -70,5 +70,5 @@ jobs:
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  body: 'This PR has automatically been formatted. <´${{join(steps.run_tests.outputs.*, '\n')}}´> \n <`${{steps.schema_validation.outputs.cli_output}}` >'
+                  body: 'This PR has automatically been formatted. \n\n\n ```\n${{steps.schema_validation.outputs.cli_output}}\n``` >'
                 })
