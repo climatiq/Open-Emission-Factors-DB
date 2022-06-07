@@ -50,19 +50,28 @@ jobs:
         run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
         working-directory: python-oefdb-sdk
       - name: Validate OEFDB schema
-        if: always()
+        if: always() # Always attempt schema validation even if another validation fails
         id: schema_validation
+        # See https://stackoverflow.com/a/66713349/8007580 for this solution that allows us to capture output while still failing
         run: |
           poetry run oefdb_validate_schema --fix -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml 2>&1 | tee test.log
           result_code=${PIPESTATUS[0]}
           echo "::set-output name=cli_output::$(cat test.log)"
           exit $result_code
-        working-directory: python-oefdb-sdk
 
-      - name: 'Write comment that explains formatting'
-        #if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        # If autofix has changed some files, we commit them here
+        # Note that this does not trigger an extra CI run. See https://github.com/stefanzweifel/git-auto-commit-action#commits-made-by-this-action-do-not-trigger-new-workflow-runs
+        working-directory: python-oefdb-sdk
+      - name: Commits and pushes changed files
+        if: always() # Previous step will fail if it still cannot validate after fixes - in that case we still want to commit the fixes
+        id: auto-commit-action
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+            commit_message: 'Automatically committing changed files'
+
+      - name: 'Write autofix comment'
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
         uses: actions/github-script@v5
-        if: always()
         with:
             github-token: ${{secrets.GITHUB_TOKEN}}
             script: |
