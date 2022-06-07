@@ -50,6 +50,53 @@ jobs:
         run: poetry run oefdb_validate -i ../OpenEmissionFactorsDB.csv
         working-directory: python-oefdb-sdk
       - name: Validate OEFDB schema
-        if: always()
-        run: poetry run oefdb_validate_schema -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml
+        if: always() # Always attempt schema validation even if another validation fails
+        id: schema_validation
         working-directory: python-oefdb-sdk
+        run: |
+          # See https://stackoverflow.com/a/66713349/8007580 for this solution that allows us to capture output while still failing
+          poetry run oefdb_validate_schema -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml --fix 2>&1 | tee test.log
+          result_code=${PIPESTATUS[0]}
+          
+          # There is a limit to how long we can make comments - so if we have too much output we need to truncate it
+          if [[ $(wc -l < test.log) -ge 100 ]]
+          then
+              START=$(cat "test.log" | head -n 50)
+              END=$(cat "test.log" | tail -n 50)
+              nl=$'\n'
+              RESULT="$START $nl ... MIDDLE OF OUTPUT TRUNCATED BECAUSE IT'S TOO LONG ...  $nl $END"
+          else
+              RESULT=$(cat test.log)
+          fi
+          
+          # Github deals terribly with multiline strings.
+          # So we have to replace them with escape chars here and then Github will automatically unescape
+          # see https://github.community/t/set-output-truncates-multiline-strings/16852/4
+          RESULT="${RESULT//'%'/'%25'}"
+          RESULT="${RESULT//$'\n'/'%0A'}"
+          RESULT="${RESULT//$'\r'/'%0D'}"
+          echo "::set-output name=cli_output::$RESULT"
+          exit $result_code
+
+        # If autofix has changed some files, we commit them here
+        # Note that this does not trigger an extra CI run. See https://github.com/stefanzweifel/git-auto-commit-action#commits-made-by-this-action-do-not-trigger-new-workflow-runs
+
+      - name: Commits and pushes changed files
+        if: always() # Previous step will fail if it still cannot validate after fixes - in that case we still want to commit the fixes
+        id: auto-commit-action
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+            commit_message: 'Automatically fixing via SDK'
+
+      - name: 'Write autofix comment'
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        uses: actions/github-script@v5
+        with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: `# Automatic fix applied \n The SDK has encountered something it could fix automatically. \n It has automatically fixed some lines and pushed a new commit to your branch. \n\n  Please inspect the output below, and pull down the latest commit to ensure that everything looks right. \n \`\`\`\n ${{ steps.schema_validation.outputs.cli_output }} \n\`\`\``
+                });
