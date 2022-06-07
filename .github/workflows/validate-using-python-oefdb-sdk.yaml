@@ -52,7 +52,11 @@ jobs:
       - name: Validate OEFDB schema
         if: always()
         id: schema_validation
-        run: echo '::set-output name=CLI_OUTPUT::$(poetry run oefdb_validate_schema --fix -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml)'
+        run: |
+          poetry run oefdb_validate_schema --fix -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml 2>&1 | tee test.log
+          result_code=${PIPESTATUS[0]}
+          echo "::set-output name=cli_output::$(cat test.log)"
+          exit $result_code
         working-directory: python-oefdb-sdk
 
       - name: 'Write comment that explains formatting'
@@ -66,5 +70,5 @@ jobs:
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  body: 'This PR has automatically been formatted. ´${{join(steps.run_tests.outputs.*, '\n')}}´ \n `${{steps.schema_validation.outputs.CLI_OUTPUT}}`'
+                  body: 'This PR has automatically been formatted. ´${{join(steps.run_tests.outputs.*, '\n')}}´ \n `${{steps.schema_validation.outputs.cli_output}}`'
                 })
