@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Validate OEFDB schema
         if: always()
+        id: schema_validation
         run: echo '::set-output name=CLI_OUTPUT::$(poetry run oefdb_validate_schema --fix -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml)'
         working-directory: python-oefdb-sdk
 
@@ -31,5 +32,5 @@ jobs:
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  body: 'This PR has automatically been formatted. ´code´ `code block`'
+                  body: 'This PR has automatically been formatted. ´code´ \n `${{steps.schema_validation.outputs.CLI_OUTPUT}}`'
                 })
