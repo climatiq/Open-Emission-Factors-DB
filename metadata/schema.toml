@@ -6,7 +6,10 @@
 # Explicit documentation for the schema and the validators are available here: https://github.com/climatiq/python-oefdb-sdk#schema-validation
 # See the description of the first column for the structure of the column
 
-
+[[columns]]
+name = "UUID"
+validators = []
+allow_empty = true
 
 # The [[columns]] denotes the start of a new column
 # The columns are ordered - it is checked that the columns are in the same order in this file and in the CSV file
