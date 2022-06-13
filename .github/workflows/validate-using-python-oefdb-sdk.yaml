@@ -63,7 +63,8 @@ jobs:
           poetry run oefdb_validate_schema -i ../OpenEmissionFactorsDB.csv -s ../metadata/schema.toml --fix 2>&1 | tee test.log
           result_code=${PIPESTATUS[0]}
           
-          # There is a limit to how long we can make comments - so if we have too much output we need to truncate it
+          # There is a limit to how much input we can pass into the comment action
+          # So if we have too much output here we need to truncate it
           if [[ $(wc -l < test.log) -ge 100 ]]
           then
               START=$(cat "test.log" | head -n 50)
@@ -76,6 +77,7 @@ jobs:
           
           # Github deals terribly with multiline strings.
           # So we have to replace them with escape chars here and then Github will automatically unescape
+          # Otherwise we can only capture the first line of our string
           # see https://github.community/t/set-output-truncates-multiline-strings/16852/4
           RESULT="${RESULT//'%'/'%25'}"
           RESULT="${RESULT//$'\n'/'%0A'}"
@@ -93,9 +95,9 @@ jobs:
         id: auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-            commit_message: 'Automatically fixing via SDK'
+            commit_message: 'Automatic fixes by the OEFDB validator'
 
-      - name: 'Write autofix comment'
+      - name: 'Add comment to PR discussion thread'
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         uses: actions/github-script@v5
         with:
@@ -105,5 +107,5 @@ jobs:
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  body: `# Automatic fix applied \n The SDK has encountered something it could fix automatically. \n It has automatically fixed some lines and pushed a new commit to your branch. \n\n  Please inspect the output below, and pull down the latest commit to ensure that everything looks right. \n \`\`\`\n ${{ steps.schema_validation.outputs.cli_output }} \n\`\`\``
+                  body: `# Automatic fix applied \n The OEFDB validator has encountered something it could fix automatically. \n It has automatically changed some lines and pushed a new commit to your branch. \n\n  Please inspect the output below, and run `git pull` to update your local branch if you want to keep working. \n \`\`\`\n ${{ steps.schema_validation.outputs.cli_output }} \n\`\`\``
                 });
