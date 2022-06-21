@@ -180,7 +180,7 @@ allowed_values = [
     "GB-hour",
     "GB",
     "TB-hour",
-    "person-night",
+    "room-night",
     "tonne-km",
     "ton-mile",
     "passenger-mile",
