@@ -102,6 +102,8 @@ This field flags any wrong/unreliable data point detected by the team or users. 
 -	`h`: suspicious homogeneity across multiple entries 
 -	`m`: notable methodological variance or lack of clarity
 
+More details on how these flags are determined and applied can be found in the [OEFDB methodology guide here](https://github.com/climatiq/Open-Emission-Factors-DB/blob/main/DATA_METHODOLOGY.md).
+
 ### contributor
 
 The contributor is either the organization, which officially provided the data point or the GitHub handle of the person who provided the contribution.
