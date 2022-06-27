@@ -2,6 +2,29 @@
 
 Welcome to the Open Emission Factors Database (OEFDB) methods documentation! This document provides explanations and context for methods employed in the [OEFDB](https://github.com/climatiq/Open-Emission-Factors-DB) for e.g. data quality assessments, detection of potentially erroneous values, calculations of data points etc.
 
+### BEIS spend-based emissions (University of Leeds consumption-based model)
+
+Emission factors were obtained from the "Data download consumption emissions 1990-2018.xls" file available at the official UK government's carbon footprint site.
+
+Following consultation with the team that generated these factors, where emission factors are identical across a variety of activities they have been grouped to ensure the most accurate reflection of the consumption activities included in the generation of these factors.
+
+For example, a single "Meat (fresh/chilled/frozen/processed)" emission factor of 2.471 kgCO2e/£ has been included in the OEFDB instead of the following 9 meat-related emission factors (all with the same value of 2.471 kgCO2e/£).
+
+1.1.5 Beef (fresh, chilled or frozen)
+1.1.6 Pork (fresh, chilled or frozen)
+1.1.7 Lamb (fresh, chilled or frozen)
+1.1.8 Poultry (fresh, chilled or frozen)
+1.1.9 Bacon and ham
+1.1.10.1 Sausages
+1.1.10.2 Offal, pate etc
+1.1.10.3 Other preserved or processed meat and meat preparations
+1.1.10.4 Other fresh, chilled or frozen edible meat
+
+These various categories are then listed in the description field of the emission factor to ensure the relationship with the original factors are apparent.
+
+This avoids a false sense of accuracy that would be produced by having a per-category emission factor which appears to relate to a specific sub-category of meat when in fact the factor applies to the production of all meat products in the UK.
+
+
 ### EXIOBASE data quality assessment methodology
 
 Emission factors were obtained from the M.txt matrix of the impacts output of the EXIOBASE. The values initially are supplied in kgCO2e/Million Euro and were divided by 1 million to obtain kgCO2e/Euro.
