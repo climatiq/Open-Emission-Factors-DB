@@ -1,10 +1,10 @@
 # Methods and Data
 
-Welcome to the Open Emission Factors Database (OEFDB) methods documentation! This document provides explanations and context for methods employed in the [OEFDB](https://github.com/climatiq/Open-Emission-Factors-DB) for e.g. data quality assessments, detection of potentially erroneous values, calculations of data points etc.
+Welcome to the Open Emission Factors Database (OEFDB) methods documentation! This document provides explanations and context for methods employed in the [OEFDB](https://github.com/climatiq/Open-Emission-Factors-DB), for example data quality assessments, detection of potentially erroneous values, calculations of data points etc.
 
 ### BEIS spend-based emissions (University of Leeds consumption-based model)
 
-Emission factors were obtained from the "Data download consumption emissions 1990-2018.xls" file available at the official UK government's carbon footprint site.
+Emission factors were obtained from the "Data download consumption emissions 1990-2018.xls" file available at the [UK government's carbon footprinting website](https://www.gov.uk/government/statistics/uks-carbon-footprint).
 
 Following consultation with the team that generated these factors, where emission factors are identical across a variety of activities they have been grouped to ensure the most accurate reflection of the consumption activities included in the generation of these factors.
 
