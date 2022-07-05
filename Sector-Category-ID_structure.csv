@@ -75,7 +75,7 @@ Transport,Air Travel,passenger_flight-route_type_[....]-aircraft_type_[....]-dis
 Transport,Rail Freight,freight_train-route_type_[....]-fuel_type_[....],
 Transport,Rail Travel,passenger_train-route_type_[....]-fuel_source_[....],
 Transport,Road Freight,freight_vehicle-vehicle_type_[....]-fuel_source_[....]-vehicle_weight_[....],
-Transport,Road Travel,passenger_vehicle-vehicle_type_[....]-fuel_source_[....]-distance_[....]-engine_size_[....],
+Transport,Road Travel,passenger_vehicle-vehicle_type_[....]-fuel_source_[....]-distance_[....]-engine_size_[....]-percentage_load[....],
 Transport,Sea Freight,sea_freight-vessel_type_[....]-route_type_[....]-vessel_length_[....]-tonnage_[....]-fuel_source_[....],
 Transport,Sea Travel,passenger_ferry-route_type_[....]-fuel_source_[....],
 Transport,Tickets and Passes,tickets_passes-transport_type_[....]-ticket_type_[....],
