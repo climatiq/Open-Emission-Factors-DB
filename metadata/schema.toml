@@ -278,6 +278,7 @@ allowed_values = [
     "manufacturing-electricity_consumption",
     "end_of_life",
     "gate_to_grave",
+    "transport"
 ]
 
 [[columns]]
@@ -302,6 +303,7 @@ allowed_values = [
     "CCF",
     "UBA",
     "STC-Nestra B.V.",
+    "GEMIS"
 ]
 
 [[columns]]
