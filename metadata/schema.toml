@@ -280,7 +280,9 @@ allowed_values = [
     "gate_to_grave",
     "transport",
     "tank_to_wheel",
-    "well_to_wheel"
+    "well_to_wheel",
+    "upstream-electricity_generation",
+    "upstream-use_phase-transport"
 ]
 
 [[columns]]
