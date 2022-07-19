@@ -188,6 +188,8 @@ allowed_values = [
     "km",
     "passenger-km",
     "mile",
+    "TEU-km",
+    "container-moved"
 ]
 
 
@@ -282,7 +284,9 @@ allowed_values = [
     "tank_to_wheel",
     "well_to_wheel",
     "upstream-electricity_generation",
-    "upstream-use_phase-transport"
+    "upstream-use_phase-transport",
+    "upstream-use_phase-transport-transmission_and_distribution",
+    "upstream-electricity_generation-transmission_and_distribution"
 ]
 
 [[columns]]
