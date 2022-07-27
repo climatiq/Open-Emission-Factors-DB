@@ -7,12 +7,12 @@ A note on data ordering: for ease of inspection, the OEFDB is ordered alphanumer
 ## Field definitions:
 
 ### sector
-`string` | defined values
+`string` | 50 chars | defined values
 
 The overarching category of an emission factor. Should align with existing sectors in the DB unless proposing a new sector (please include details and justification in the pull request)
 
 ### category
-`string` | defined values
+`string` | 50 chars | defined values
 
 Emission factor category. Aligned with `sector`, but more specific to the activity in question; again this should align with existing unless a new category is being proposed.
 
