@@ -190,7 +190,8 @@ allowed_values = [
     "passenger-km",
     "mile",
     "TEU-km",
-    "container-moved"
+    "container-moved",
+    "hour"
 ]
 
 
