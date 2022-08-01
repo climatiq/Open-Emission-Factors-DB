@@ -92,6 +92,7 @@ allowed_values = [
     "Office equipment",
     "Office Equipment",
     "Health and Social Care",
+    "Homeworking",
     "Social Care",
     "Cloud Computing - CPU",
     "Cloud Computing - Memory",
